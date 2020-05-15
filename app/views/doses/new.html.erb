@@ -1,10 +1,16 @@
-<h1>Add a new dose</h1>
-<%= simple_form_for [@cocktail, @dose] do |f| %>
-  <%= f.error_notification %>
-  <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
-  <%= f.error_notification %>
-  <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
-  <%= f.input :description %>
-  <%= f.association :ingredient %>
-  <%= f.button :submit %>
-<% end %>
+<div class="container d-flex justify-content-center">
+  <div class="container-new">
+    <h1>Add a new dose</h1>
+    <%= simple_form_for [@cocktail, @dose] do |f| %>
+      <%= f.error_notification %>
+      <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
+      <%= f.error_notification %>
+      <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
+      <%= f.input :description , class: "form-control" %>
+      <%= f.association :ingredient %>
+      <%= f.button :submit, class: "btn btn-flat" %>
+    <% end %>
+  </div>
+</div>
+
+

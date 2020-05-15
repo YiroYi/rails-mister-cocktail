@@ -1,5 +1,18 @@
-<h1>Cocktail Homepage</h1>
- <% @cocktails.each do |cocktail| %>
- <p><%= link_to cocktail.name, cocktail_path(cocktail.id)%></p>
- <% end %>
- <%= link_to 'Add a new cocktail', new_cocktail_path %>
+<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)),url('<%= image_path "banner.jpg"%>');">
+  <div class="container">
+    <h1>Thirsty ? <strong>Boring ?</strong> Happy ? <strong> Sad?</strong>!</h1>
+    <p>Always a good time to make a cocktail</p>
+    <%= link_to 'GO CRAZY !', new_cocktail_path, class: "btn btn-flat" %>
+  </div>
+</div>
+<div class="down-color">
+<h1 class="text-center text-white">Cocktails for this week</h1>
+  <div class="container d-flex justify-content-around"">
+     <% @cocktails.each do |cocktail| %>
+       <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)),url('<%= cl_image_path cocktail.photo.key, height: 200, width: 300, crop: :fill %>');">
+        <%= link_to cocktail.name, cocktail_path(cocktail.id), class: "text-center"%>
+       </div>
+     <% end %>
+  </div>
+</div>
+
